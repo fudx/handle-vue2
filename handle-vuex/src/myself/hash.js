@@ -11,7 +11,9 @@ export default class Hash  extends Base{
         })
     }
     getLocation(){
-        const path = location.hash.slice(1)
-        return path
+        if(location.hash.includes('#')) {
+            return location.hash.slice(1)
+        }
+        return location.hash || '/'
     }
 }
